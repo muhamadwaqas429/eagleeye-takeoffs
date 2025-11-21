@@ -11,25 +11,30 @@ import { Badge } from "@/components/ui/badge.jsx";
 import { Button } from "@/components/ui/button.jsx";
 import { motion } from "framer-motion";
 
+// Import images
+import takeoffImg from "../assets/service_takeoff.png";
+import estimatingImg from "../assets/service_estimating.png";
+import reportImg from "../assets/report_estimate.png";
+
 // Services data
 const services = [
   {
     title: "Takeoffs",
-    img: "/src/assets/service_takeoff.png",
+    img: takeoffImg,
     desc: "Quick and accurate takeoffs for your projects.",
     badge: "Popular",
     accent: "from-amber-400 to-amber-500",
   },
   {
     title: "Estimating",
-    img: "/src/assets/service_estimating.png",
+    img: estimatingImg,
     desc: "Precise estimating services for your construction needs.",
     badge: "New",
     accent: "from-pink-400 to-pink-500",
   },
   {
     title: "Reporting",
-    img: "/src/assets/report_estimate.png",
+    img: reportImg,
     desc: "Detailed reporting to keep your team aligned and informed.",
     badge: "Expert",
     accent: "from-cyan-400 to-cyan-500",
@@ -66,7 +71,7 @@ export default function ServicesSection() {
           construction services that elevate your projects.
         </motion.p>
 
-        {/* Premium Cards */}
+        {/* Service Cards */}
         <div className="flex flex-col md:flex-row gap-12">
           {services.map((service, idx) => (
             <motion.div
@@ -87,7 +92,7 @@ export default function ServicesSection() {
                   {service.badge}
                 </Badge>
 
-                {/* Floating abstract shapes inside card */}
+                {/* Floating shapes inside card */}
                 <div
                   className={`absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-tr ${service.accent} rounded-full blur-2xl animate-ping-slow`}
                 ></div>
@@ -106,6 +111,7 @@ export default function ServicesSection() {
                     {service.title}
                   </CardTitle>
                 </CardHeader>
+
                 <CardContent className="flex flex-col items-center gap-4 relative z-10">
                   <CardDescription className="text-zinc-300 text-center">
                     {service.desc}
