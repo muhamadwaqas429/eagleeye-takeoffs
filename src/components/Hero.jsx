@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button.jsx";
 import heroImg from "../assets/hero.png"; // replace with your hero image
 
 export default function HeroSection() {
