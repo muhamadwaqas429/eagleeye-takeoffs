@@ -1,6 +1,6 @@
 // src/pages/About.jsx
 import React from "react";
-import AboutSection from "@/components/AboutSection";
+import AboutSection from "@/components/AboutSection.jsx";
 
 export default function About() {
   return (

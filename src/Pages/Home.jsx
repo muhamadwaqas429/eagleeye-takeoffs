@@ -2,10 +2,10 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import HeroSection from "@/components/Hero";
-import ServicesSection from "@/components/ServicesSection";
-import AboutSection from "@/components/AboutSection";
-import ContactSection from "@/components/ContactForm";
+import HeroSection from "@/components/Hero.jsx";
+import ServicesSection from "@/components/ServicesSection.jsx";
+import AboutSection from "@/components/AboutSection.jsx";
+import ContactSection from "@/components/ContactForm.jsx";
 
 export default function Home() {
   const location = useLocation();

@@ -1,6 +1,6 @@
 // src/pages/Services.jsx
 import React from "react";
-import ServicesSection from "@/components/ServicesSection";
+import ServicesSection from "@/components/ServicesSection.jsx";
 
 export default function Services() {
   return (
