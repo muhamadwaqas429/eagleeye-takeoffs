@@ -6,9 +6,9 @@ import Navbar from "@/components/Navbar.jsx";
 import Footer from "@/components/Footer.jsx";
 
 import Home from "@/pages/Home.jsx";
-import Services from "@/Pages/About.jsx";
-import About from "@/Pages/About.jsx";
-import Contact from "@/Pages/Contact.jsx";
+import Services from "@/pages/About.jsx";
+import About from "@/pages/About.jsx";
+import Contact from "@/pages/Contact.jsx";
 
 export default function App() {
   return (
