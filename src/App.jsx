@@ -2,13 +2,13 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar.jsx";
+import Footer from "@/components/Footer.jsx";
 
-import Home from "@/pages/Home";
-import Services from "@/pages/Services";
-import About from "@/pages/About";
-import Contact from "@/pages/Contact";
+import Home from "@/pages/Home.jsx";
+import Services from "@/pages/Services.jsx";
+import About from "@/pages/About.jsx";
+import Contact from "@/pages/Contact.jsx";
 
 export default function App() {
   return (
