@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button.jsx";
-import heroImg from "../assets/hero.png"; // replace with your hero image
+import heroImg from "../assets/hero.png";
 
 export default function HeroSection() {
   return (
@@ -9,7 +9,6 @@ export default function HeroSection() {
       aria-label="Hero"
       className="relative w-full min-h-screen flex items-center justify-center bg-black text-white overflow-hidden"
     >
-      {/* Background image */}
       <img
         src={heroImg}
         alt="Construction aerial"

@@ -4,9 +4,8 @@ import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0f1a] text-gray-300 pt-14 pb-8 mt-20 border-t border-gray-800">
+    <footer className="bg-[#0a0f1a] text-gray-300 pt-14 pb-8 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-10">
-        {/* Brand Section */}
         <div>
           <h2 className="text-2xl font-bold text-white tracking-wide">
             EagleEye Takeoffs

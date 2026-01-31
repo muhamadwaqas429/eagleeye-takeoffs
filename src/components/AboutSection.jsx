@@ -3,7 +3,7 @@ import React from "react";
 import { Badge } from "@/components/ui/badge.jsx";
 import { Button } from "@/components/ui/button.jsx";
 import { motion } from "framer-motion";
-import aboutImg from "../assets/services.png"; // Place your about image here
+import aboutImg from "../assets/services.png";
 
 export default function AboutSection() {
   return (
