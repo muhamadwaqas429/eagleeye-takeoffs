@@ -38,22 +38,15 @@ const offices = [
 
 function SectionHeading({ children }) {
   return (
-    <div style={{ marginBottom: "20px" }}>
-      <h3
-        style={{
-          fontSize: "11px",
-          fontWeight: 700,
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          color: "#f59e0b",
-          margin: 0,
-          paddingBottom: "10px",
-          borderBottom: "1px solid rgba(245,158,11,0.2)",
-        }}
-      >
-        {children}
-      </h3>
-    </div>
+    <h3
+      className="text-[11px] font-bold uppercase tracking-widest pb-3 mb-5"
+      style={{
+        color: "#f59e0b",
+        borderBottom: "1px solid rgba(245,158,11,0.2)",
+      }}
+    >
+      {children}
+    </h3>
   );
 }
 
@@ -75,127 +68,60 @@ export default function Footer() {
         }}
       />
 
-      {/* Main content */}
-      <div
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "64px 32px 48px",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2.2fr 1fr 1.2fr 2fr",
-            gap: "48px",
-            alignItems: "start",
-          }}
-        >
-          {/* ─── Column 1: Brand ─── */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
-            {/* Logo mark + name */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                marginBottom: "16px",
-              }}
-            >
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
+
+        {/* Main grid — 1 col on mobile, 2 cols on sm, 4 cols on lg */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 items-start">
+
+          {/* ── Col 1: Brand ── */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            {/* Logo + name */}
+            <div className="flex items-center gap-3 mb-4">
               <div
+                className="flex items-center justify-center shrink-0"
                 style={{
                   width: "38px",
                   height: "38px",
                   borderRadius: "9px",
                   background: "linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
                 }}
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#0c1121" />
-                  <path
-                    d="M2 17l10 5 10-5"
-                    stroke="#0c1121"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M2 12l10 5 10-5"
-                    stroke="#0c1121"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                  />
+                  <path d="M2 17l10 5 10-5" stroke="#0c1121" strokeWidth="2.2" strokeLinecap="round" />
+                  <path d="M2 12l10 5 10-5" stroke="#0c1121" strokeWidth="2.2" strokeLinecap="round" />
                 </svg>
               </div>
-              <div>
-                <span
-                  style={{
-                    fontSize: "17px",
-                    fontWeight: 800,
-                    color: "#ffffff",
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  EagleEye{" "}
-                  <span style={{ color: "#f59e0b" }}>Takeoffs</span>
-                </span>
-              </div>
+              <span className="text-lg font-extrabold text-white tracking-tight">
+                EagleEye <span style={{ color: "#f59e0b" }}>Takeoffs</span>
+              </span>
             </div>
 
-            <p
-              style={{
-                fontSize: "13.5px",
-                lineHeight: "1.75",
-                color: "#6b7280",
-                marginBottom: "24px",
-                maxWidth: "280px",
-              }}
-            >
+            <p className="text-sm leading-relaxed mb-5" style={{ color: "#6b7280", maxWidth: "300px" }}>
               Premium construction takeoffs &amp; estimating services for
               contractors, builders, and architects across North America.
             </p>
 
             <a
               href="mailto:support@eetakeoffs.com"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "7px",
-                fontSize: "13px",
-                color: "#f59e0b",
-                textDecoration: "none",
-                fontWeight: 500,
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#fbbf24")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#f59e0b")}
+              className="inline-flex items-center gap-2 text-sm font-medium transition-colors"
+              style={{ color: "#f59e0b" }}
             >
               <Mail size={14} />
               support@eetakeoffs.com
             </a>
           </div>
 
-          {/* ─── Column 2: Quick Links ─── */}
+          {/* ── Col 2: Quick Links ── */}
           <div>
             <SectionHeading>Quick Links</SectionHeading>
-            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
+            <ul className="flex flex-col gap-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.to}
-                    style={{
-                      fontSize: "13.5px",
-                      color: "#9ca3af",
-                      textDecoration: "none",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      transition: "color 0.2s",
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "#9ca3af")}
+                    className="flex items-center gap-2 text-sm transition-colors hover:text-white"
+                    style={{ color: "#9ca3af" }}
                   >
                     <span style={{ color: "#f59e0b", fontSize: "10px" }}>▸</span>
                     {link.label}
@@ -205,29 +131,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ─── Column 3: Services ─── */}
+          {/* ── Col 3: Services ── */}
           <div>
             <SectionHeading>Services</SectionHeading>
-            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
+            <ul className="flex flex-col gap-3">
               {servicesList.map((svc) => (
                 <li
                   key={svc}
-                  style={{
-                    fontSize: "13.5px",
-                    color: "#9ca3af",
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "6px",
-                  }}
+                  className="flex items-start gap-2 text-sm"
+                  style={{ color: "#9ca3af" }}
                 >
-                  <span
-                    style={{
-                      color: "#f59e0b",
-                      fontSize: "10px",
-                      marginTop: "3px",
-                      flexShrink: 0,
-                    }}
-                  >
+                  <span style={{ color: "#f59e0b", fontSize: "10px", marginTop: "3px", flexShrink: 0 }}>
                     ▸
                   </span>
                   {svc}
@@ -236,10 +150,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ─── Column 4: Offices ─── */}
-          <div>
+          {/* ── Col 4: Offices ── */}
+          <div className="sm:col-span-2 lg:col-span-1">
             <SectionHeading>Our Offices</SectionHeading>
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            <div className="flex flex-col gap-4">
               {offices.map((office) => (
                 <div
                   key={office.country}
@@ -250,65 +164,28 @@ export default function Footer() {
                     padding: "14px 16px",
                   }}
                 >
-                  {/* Country header */}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                      marginBottom: "12px",
-                    }}
-                  >
-                    <span style={{ fontSize: "17px", lineHeight: 1 }}>
-                      {office.flag}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: "13px",
-                        fontWeight: 700,
-                        color: "#ffffff",
-                      }}
-                    >
-                      {office.country}
-                    </span>
+                  {/* Country */}
+                  <div className="flex items-center gap-2 mb-3">
+                    <span style={{ fontSize: "17px", lineHeight: 1 }}>{office.flag}</span>
+                    <span className="text-sm font-bold text-white">{office.country}</span>
                   </div>
 
-                  {/* Address row */}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "8px",
-                      marginBottom: "8px",
-                    }}
-                  >
-                    <MapPin
-                      size={13}
-                      style={{ color: "#6b7280", marginTop: "2px", flexShrink: 0 }}
-                    />
-                    <div style={{ fontSize: "12.5px", color: "#9ca3af", lineHeight: 1.55 }}>
+                  {/* Address */}
+                  <div className="flex items-start gap-2 mb-2">
+                    <MapPin size={13} className="shrink-0 mt-0.5" style={{ color: "#6b7280" }} />
+                    <div className="text-xs leading-relaxed" style={{ color: "#9ca3af" }}>
                       <div>{office.address}</div>
                       <div>{office.city}</div>
                     </div>
                   </div>
 
-                  {/* Phone row */}
+                  {/* Phone */}
                   <a
                     href={office.tel}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "7px",
-                      fontSize: "12.5px",
-                      color: "#9ca3af",
-                      textDecoration: "none",
-                      fontWeight: 500,
-                      transition: "color 0.2s",
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "#9ca3af")}
+                    className="inline-flex items-center gap-2 text-xs font-medium transition-colors hover:text-white"
+                    style={{ color: "#9ca3af" }}
                   >
-                    <Phone size={12} style={{ color: "#6b7280", flexShrink: 0 }} />
+                    <Phone size={12} className="shrink-0" style={{ color: "#6b7280" }} />
                     {office.phone}
                     <ArrowUpRight size={11} style={{ color: "#f59e0b" }} />
                   </a>
@@ -320,37 +197,16 @@ export default function Footer() {
 
         {/* Divider */}
         <div
-          style={{
-            height: "1px",
-            background: "rgba(255,255,255,0.06)",
-            margin: "44px 0 24px",
-          }}
+          className="my-10"
+          style={{ height: "1px", background: "rgba(255,255,255,0.06)" }}
         />
 
         {/* Bottom bar */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "12px",
-          }}
-        >
-          <span style={{ fontSize: "12px", color: "#4b5563" }}>
-            © {new Date().getFullYear()} EagleEye Takeoffs. All rights reserved.
-          </span>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs" style={{ color: "#4b5563" }}>
+          <span>© {new Date().getFullYear()} EagleEye Takeoffs. All rights reserved.</span>
 
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "20px",
-              fontSize: "12px",
-              color: "#4b5563",
-            }}
-          >
-            <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <span className="flex items-center gap-2">
               <span
                 style={{
                   display: "inline-block",
@@ -363,12 +219,11 @@ export default function Footer() {
               />
               Serving USA &amp; Canada
             </span>
-            <span style={{ color: "rgba(255,255,255,0.08)" }}>|</span>
+            <span style={{ color: "rgba(255,255,255,0.1)" }}>|</span>
             <a
               href="mailto:support@eetakeoffs.com"
-              style={{ color: "#4b5563", textDecoration: "none", transition: "color 0.2s" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#9ca3af")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#4b5563")}
+              className="transition-colors hover:text-gray-400"
+              style={{ color: "#4b5563" }}
             >
               support@eetakeoffs.com
             </a>
