@@ -41,7 +41,8 @@ const services = [
   },
 ];
 
-export default function ServicesSection() {
+export default function ServicesSection({ headingLevel = "h2" }) {
+  const MotionHeading = motion[headingLevel] || motion.h2;
   return (
     <section className="relative py-32 bg-zinc-900 text-white overflow-hidden">
       {/* Background abstract shapes */}
@@ -51,7 +52,7 @@ export default function ServicesSection() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
-        <motion.h2
+        <MotionHeading
           className="text-5xl md:text-6xl font-extrabold text-center mb-6"
           initial={{ y: -60, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -59,7 +60,7 @@ export default function ServicesSection() {
           transition={{ duration: 1 }}
         >
           Our <span className="text-amber-400">Expert Services</span>
-        </motion.h2>
+        </MotionHeading>
         <motion.p
           className="text-zinc-300 text-lg md:text-xl text-center mb-20 max-w-3xl mx-auto"
           initial={{ opacity: 0 }}

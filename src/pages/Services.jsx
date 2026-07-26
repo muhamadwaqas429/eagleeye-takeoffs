@@ -5,7 +5,8 @@ import ServicesSection from "@/components/ServicesSection.jsx";
 export default function Services() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-20">
-      <ServicesSection />
+      {/* headingLevel="h1" — primary page heading for the standalone Services route */}
+      <ServicesSection headingLevel="h1" />
     </div>
   );
 }

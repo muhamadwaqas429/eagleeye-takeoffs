@@ -5,7 +5,8 @@ import AboutSection from "@/components/AboutSection.jsx";
 export default function About() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-20">
-      <AboutSection />
+      {/* headingLevel="h1" — this is the primary page heading on the standalone About route */}
+      <AboutSection headingLevel="h1" />
     </div>
   );
 }

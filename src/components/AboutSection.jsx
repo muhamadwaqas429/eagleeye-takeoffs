@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button.jsx";
 import { motion } from "framer-motion";
 import aboutImg from "../assets/services.png";
 
-export default function AboutSection() {
+export default function AboutSection({ headingLevel = "h2" }) {
+  const Heading = headingLevel;
   return (
     <section className="relative py-32 bg-zinc-900 text-white overflow-hidden">
       {/* Background shapes */}
@@ -35,9 +36,9 @@ export default function AboutSection() {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-5xl font-extrabold mb-6">
+          <Heading className="text-5xl font-extrabold mb-6">
             About <span className="text-amber-400">EagleEye Takeoffs</span>
-          </h2>
+          </Heading>
           <p className="text-zinc-300 text-lg md:text-xl mb-6">
             EagleEye Takeoffs provides precise, reliable, and fast construction
             takeoff and estimating services to help your projects stay on

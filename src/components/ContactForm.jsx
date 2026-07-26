@@ -1,16 +1,17 @@
-// src/components/ContactSection.jsx
+// src/components/ContactForm.jsx
 import React from "react";
 
-export default function ContactSection() {
+export default function ContactSection({ headingLevel = "h2" }) {
+  const Heading = headingLevel;
   return (
     <section className="bg-zinc-950 py-24 px-4">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
         {/* LEFT TEXT BLOCK */}
         <div className="text-left">
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Let’s Discuss Your
+          <Heading className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            Let's Discuss Your
             <span className="text-amber-400"> Project Requirements</span>
-          </h2>
+          </Heading>
           <p className="mt-6 text-zinc-400 text-lg leading-relaxed max-w-lg">
             Whether you need precise takeoffs, cost estimating, blueprint
             analysis, or full project review — we are here to help you deliver
@@ -24,7 +25,7 @@ export default function ContactSection() {
             </p>
             <p className="flex items-center gap-3">
               <span className="text-amber-400 text-xl">•</span>
-              Highly accurate material & cost estimations
+              Highly accurate material &amp; cost estimations
             </p>
             <p className="flex items-center gap-3">
               <span className="text-amber-400 text-xl">•</span>
