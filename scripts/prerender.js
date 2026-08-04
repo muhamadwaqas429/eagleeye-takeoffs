@@ -86,20 +86,20 @@ function buildHeadHtml(meta) {
 
   const robots = IS_PREVIEW ? "noindex, nofollow" : meta.robots;
   let html = `<title>${escAttr(meta.title)}</title>\n`;
-  html += `  <meta name="description" content="${escAttr(meta.description)}">\n`;
-  html += `  <meta name="robots" content="${escAttr(robots)}">\n`;
+  html += `  <meta name="description" content="${escAttr(meta.description)}" data-seo-managed="true">\n`;
+  html += `  <meta name="robots" content="${escAttr(robots)}" data-seo-managed="true">\n`;
   if (meta.canonical) {
-    html += `  <link rel="canonical" href="${escAttr(meta.canonical)}">\n`;
+    html += `  <link rel="canonical" href="${escAttr(meta.canonical)}" data-seo-managed="true">\n`;
   }
-  html += `  <meta property="og:type" content="website">\n`;
-  if (meta.ogTitle) html += `  <meta property="og:title" content="${escAttr(meta.ogTitle)}">\n`;
-  if (meta.ogDescription) html += `  <meta property="og:description" content="${escAttr(meta.ogDescription)}">\n`;
-  if (meta.ogUrl) html += `  <meta property="og:url" content="${escAttr(meta.ogUrl)}">\n`;
-  if (meta.ogImage) html += `  <meta property="og:image" content="${escAttr(meta.ogImage)}">\n`;
-  if (meta.twitterCard) html += `  <meta name="twitter:card" content="${escAttr(meta.twitterCard)}">\n`;
-  if (meta.twitterTitle) html += `  <meta name="twitter:title" content="${escAttr(meta.twitterTitle)}">\n`;
-  if (meta.twitterDescription) html += `  <meta name="twitter:description" content="${escAttr(meta.twitterDescription)}">\n`;
-  if (meta.twitterImage) html += `  <meta name="twitter:image" content="${escAttr(meta.twitterImage)}">\n`;
+  html += `  <meta property="og:type" content="${escAttr(meta.ogType || "website")}" data-seo-managed="true">\n`;
+  if (meta.ogTitle) html += `  <meta property="og:title" content="${escAttr(meta.ogTitle)}" data-seo-managed="true">\n`;
+  if (meta.ogDescription) html += `  <meta property="og:description" content="${escAttr(meta.ogDescription)}" data-seo-managed="true">\n`;
+  if (meta.ogUrl) html += `  <meta property="og:url" content="${escAttr(meta.ogUrl)}" data-seo-managed="true">\n`;
+  if (meta.ogImage) html += `  <meta property="og:image" content="${escAttr(meta.ogImage)}" data-seo-managed="true">\n`;
+  if (meta.twitterCard) html += `  <meta name="twitter:card" content="${escAttr(meta.twitterCard)}" data-seo-managed="true">\n`;
+  if (meta.twitterTitle) html += `  <meta name="twitter:title" content="${escAttr(meta.twitterTitle)}" data-seo-managed="true">\n`;
+  if (meta.twitterDescription) html += `  <meta name="twitter:description" content="${escAttr(meta.twitterDescription)}" data-seo-managed="true">\n`;
+  if (meta.twitterImage) html += `  <meta name="twitter:image" content="${escAttr(meta.twitterImage)}" data-seo-managed="true">\n`;
   return html;
 }
 

@@ -103,12 +103,12 @@ export default function Footer() {
             </p>
 
             <a
-              href="mailto:support@eetakeoffs.com"
+              href="mailto:eagleeyetakeoffs@gmail.com"
               className="inline-flex items-center gap-2 text-sm font-medium transition-colors"
               style={{ color: "#f59e0b" }}
             >
               <Mail size={14} />
-              support@eetakeoffs.com
+              eagleeyetakeoffs@gmail.com
             </a>
           </div>
 
@@ -221,11 +221,11 @@ export default function Footer() {
             </span>
             <span style={{ color: "rgba(255,255,255,0.1)" }}>|</span>
             <a
-              href="mailto:support@eetakeoffs.com"
+              href="mailto:eagleeyetakeoffs@gmail.com"
               className="transition-colors hover:text-gray-400"
               style={{ color: "#4b5563" }}
             >
-              support@eetakeoffs.com
+              eagleeyetakeoffs@gmail.com
             </a>
           </div>
         </div>

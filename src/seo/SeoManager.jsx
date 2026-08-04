@@ -87,6 +87,7 @@ export default function SeoManager() {
     setManagedTag('meta[name="robots"]', "content", meta.robots);
 
     // Open Graph
+    setManagedTag('meta[property="og:type"]', "content", meta.ogType || "website");
     setManagedTag('meta[property="og:title"]', "content", meta.ogTitle);
     setManagedTag('meta[property="og:description"]', "content", meta.ogDescription);
     setManagedTag('meta[property="og:url"]', "content", meta.ogUrl);

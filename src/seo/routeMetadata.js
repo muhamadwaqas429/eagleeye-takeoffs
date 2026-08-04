@@ -96,6 +96,7 @@ export function getRouteMetadata(rawPathname, blogManifest = [], isPreview = fal
   const pathname = normalizePathname(rawPathname);
 
   let base = null;
+  let ogType = "website";
 
   if (staticRoutes[pathname]) {
     base = { ...staticRoutes[pathname] };
@@ -104,6 +105,7 @@ export function getRouteMetadata(rawPathname, blogManifest = [], isPreview = fal
     if (isValidSlug(slug) && Array.isArray(blogManifest)) {
       const article = blogManifest.find((p) => p.slug === slug && !p.draft);
       if (article) {
+        ogType = "article";
         base = {
           title: `${article.title} | EagleEye Takeoffs`,
           description: article.description,
@@ -134,6 +136,7 @@ export function getRouteMetadata(rawPathname, blogManifest = [], isPreview = fal
     ogDescription: base.description,
     ogUrl,
     ogImage,
+    ogType,
     twitterCard: companyDefaults.twitterCard,
     twitterTitle: base.title,
     twitterDescription: base.description,
