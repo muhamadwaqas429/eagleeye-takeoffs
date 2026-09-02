@@ -1,162 +1,192 @@
+// src/components/Hero.jsx
 import React from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button.jsx";
-import heroImg from "../assets/hero.png";
+import heroImg from "../assets/hero_construction.jpg";
+
+const trustPoints = [
+  { icon: "⏱", label: "24–48 Hr Typical Turnaround" },
+  { icon: "📊", label: "Detailed Excel Takeoffs" },
+  { icon: "🎨", label: "Color-Coded PDF Plans" },
+  { icon: "🌎", label: "Serving USA & Canada" },
+];
 
 export default function HeroSection() {
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -75;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       aria-label="Hero"
-      className="relative w-full min-h-screen flex items-center justify-center bg-black text-white overflow-hidden"
+      className="relative w-full flex items-center justify-center text-white overflow-hidden"
+      style={{ minHeight: "100vh" }}
     >
+      {/* Background Image */}
       <img
         src={heroImg}
-        alt="Construction aerial"
-        className="absolute inset-0 w-full h-full object-cover brightness-50"
+        alt="Commercial construction site"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        style={{ filter: "brightness(0.35)" }}
         aria-hidden="true"
       />
 
-      {/* Soft round cinematic spotlight (center) */}
+      {/* Navy gradient overlay */}
       <div
-        aria-hidden="true"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[1200px] h-[90vh] max-h-[900px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(closest-side, rgba(255,195,80,0.12), rgba(0,0,0,0.65) 40%)",
-          filter: "blur(40px)",
-          mixBlendMode: "screen",
-        }}
-      />
-
-      {/* Decorative subtle vignette to deepen edges */}
-      <div
-        aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.6) 100%)",
+            "linear-gradient(135deg, rgba(10,22,40,0.90) 0%, rgba(10,22,40,0.65) 50%, rgba(10,22,40,0.85) 100%)",
         }}
+        aria-hidden="true"
       />
 
-      {/* Glassmorphism content card */}
-      <motion.div
-        initial={{ opacity: 0, y: 18, scale: 0.995 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 w-[92%] max-w-5xl rounded-2xl p-6 md:p-10 bg-[rgba(255,255,255,0.04)] backdrop-blur-md border border-[rgba(255,255,255,0.06)] shadow-2xl"
-        role="region"
-        aria-labelledby="hero-heading"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Left content */}
-          <div className="space-y-6">
-            <h1
-              id="hero-heading"
-              className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight"
-            >
-              Precision{" "}
-              <span className="text-amber-400">Construction Takeoffs</span>
-              <span className="block text-lg md:text-xl font-medium text-zinc-300 mt-3 max-w-xl">
-                Delivered fast — accurate measurements, reliable estimates, and
-                expert support to keep your projects on schedule.
-              </span>
-            </h1>
+      {/* Bottom fade */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom, transparent, #0a1628)",
+        }}
+        aria-hidden="true"
+      />
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Button className="flex items-center justify-center px-6 py-3 text-base shadow-md">
-                Get a Quote
-              </Button>
-
-              <Button
-                variant="outline"
-                className="flex items-center justify-center px-6 py-3 text-base border-zinc-600 text-zinc-100"
-              >
-                Learn More
-              </Button>
-            </div>
-
-            {/* micro-features inline */}
-            <div className="flex flex-wrap gap-3 mt-4">
-              <div className="inline-flex items-center gap-3 bg-zinc-800/50 px-3 py-2 rounded-lg border border-zinc-700">
-                <div className="w-3 h-3 rounded-full bg-amber-400" />
-                <span className="text-sm text-zinc-200">Fast Turnaround</span>
-              </div>
-
-              <div className="inline-flex items-center gap-3 bg-zinc-800/50 px-3 py-2 rounded-lg border border-zinc-700">
-                <div className="w-3 h-3 rounded-full bg-amber-400" />
-                <span className="text-sm text-zinc-200">Industry Accuracy</span>
-              </div>
-
-              <div className="inline-flex items-center gap-3 bg-zinc-800/50 px-3 py-2 rounded-lg border border-zinc-700">
-                <div className="w-3 h-3 rounded-full bg-amber-400" />
-                <span className="text-sm text-zinc-200">Expert Team</span>
-              </div>
-            </div>
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-16 sm:py-32 md:py-40 w-full">
+        <div className="max-w-3xl">
+          {/* Eyebrow label */}
+          <div
+            className="inline-flex items-center gap-2 mb-4 sm:mb-6 px-3 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-widest"
+            style={{
+              background: "rgba(245, 176, 52, 0.12)",
+              border: "1px solid rgba(245, 176, 52, 0.35)",
+              borderRadius: "3px",
+              color: "#f5b034",
+              letterSpacing: "0.12em",
+            }}
+          >
+            <span
+              style={{
+                display: "inline-block",
+                width: "6px",
+                height: "6px",
+                borderRadius: "50%",
+                background: "#f5b034",
+              }}
+            />
+            Professional Estimating Services
           </div>
 
-          {/* Right visual / small feature panel */}
-          <div className="flex flex-col gap-4">
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="rounded-xl overflow-hidden border border-[rgba(255,255,255,0.04)] bg-gradient-to-b from-white/3 to-white/2 p-4"
+          {/* Headline */}
+          <h1
+            id="hero-heading"
+            className="font-extrabold leading-[1.15] sm:leading-tight mb-4 sm:mb-6 tracking-tight text-white"
+            style={{
+              fontSize: "clamp(2rem, 5.5vw, 3.8rem)",
+              fontFamily: "'Inter', sans-serif",
+            }}
+          >
+            Construction Takeoffs &amp; Estimating Services{" "}
+            <span style={{ color: "#f5b034" }}>for Contractors</span>
+          </h1>
+
+          {/* Sub-headline */}
+          <p
+            className="mb-8 sm:mb-10 leading-relaxed text-sm sm:text-base md:text-lg"
+            style={{
+              color: "#b0c4d8",
+              maxWidth: "620px",
+            }}
+          >
+            Accurate material quantities, labor pricing, and bid-ready estimates
+            for commercial and residential projects across the USA and Canada.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-14 w-full sm:w-auto">
+            <button
+              id="hero-request-estimate-btn"
+              onClick={() => scrollTo("contact")}
+              className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 font-semibold text-sm sm:text-base text-center transition-all duration-200 cursor-pointer"
+              style={{
+                background: "#f5b034",
+                color: "#0a1628",
+                borderRadius: "4px",
+                boxShadow: "0 4px 20px rgba(245, 176, 52, 0.35)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#e8a020";
+                e.currentTarget.style.boxShadow =
+                  "0 6px 28px rgba(245, 176, 52, 0.45)";
+                e.currentTarget.style.transform = "translateY(-1px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "#f5b034";
+                e.currentTarget.style.boxShadow =
+                  "0 4px 20px rgba(245, 176, 52, 0.35)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
             >
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <p className="text-sm text-zinc-300">Latest Project</p>
-                  <h4 className="text-lg font-semibold">
-                    Commercial Complex Takeoff
-                  </h4>
-                </div>
-                <div className="text-amber-400 font-semibold">Trusted</div>
-              </div>
+              Request an Estimate
+            </button>
 
-              <div className="h-40 w-full rounded-md overflow-hidden bg-zinc-800">
-                {/* small thumbnail — keep as background img or replace with actual */}
-                <img
-                  src={heroImg}
-                  alt="Project thumbnail"
-                  className="w-full h-full object-cover brightness-75"
-                />
-              </div>
+            <button
+              id="hero-sample-takeoff-btn"
+              onClick={() => scrollTo("sample-work")}
+              className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 font-semibold text-sm sm:text-base text-center transition-all duration-200 cursor-pointer"
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                color: "#ffffff",
+                border: "1.5px solid rgba(255,255,255,0.25)",
+                borderRadius: "4px",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "#f5b034";
+                e.currentTarget.style.color = "#f5b034";
+                e.currentTarget.style.background = "rgba(245,176,52,0.05)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)";
+                e.currentTarget.style.color = "#ffffff";
+                e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+              }}
+            >
+              View Sample Takeoff
+            </button>
+          </div>
 
-              <div className="mt-3 flex items-center justify-between text-sm text-zinc-300">
-                <div>2,400+ items measured</div>
-                <div>Delivered in 48 hrs</div>
-              </div>
-            </motion.div>
-
-            {/* small stats row */}
-            <div className="grid grid-cols-3 gap-3 mt-2">
-              {[
-                { label: "Accuracy", value: "99.6%" },
-                { label: "Avg. Turnaround", value: "48 hrs" },
-                { label: "Satisfaction", value: "4.9/5" },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] rounded-lg p-3 text-center"
+          {/* Trust points */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap gap-3 sm:gap-x-6 sm:gap-y-3">
+            {trustPoints.map((pt) => (
+              <div
+                key={pt.label}
+                className="flex items-center gap-2.5"
+                style={{ color: "#95adbe" }}
+              >
+                <span
+                  style={{
+                    width: "18px",
+                    height: "18px",
+                    background: "rgba(245,176,52,0.18)",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "10px",
+                    color: "#f5b034",
+                    flexShrink: 0,
+                  }}
                 >
-                  <div className="text-xs text-zinc-300">{s.label}</div>
-                  <div className="text-lg font-semibold text-white">
-                    {s.value}
-                  </div>
-                </div>
-              ))}
-            </div>
+                  ✓
+                </span>
+                <span className="text-xs sm:text-sm font-medium">{pt.label}</span>
+              </div>
+            ))}
           </div>
         </div>
-      </motion.div>
-
-      {/* subtle animated floating shapes (decorative) */}
-      <motion.div
-        aria-hidden="true"
-        initial={{ opacity: 0.12, y: 0 }}
-        animate={{ opacity: [0.12, 0.06, 0.12], y: [0, -6, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -right-16 -bottom-16 w-56 h-56 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"
-      />
+      </div>
     </section>
   );
 }

@@ -21,7 +21,7 @@ export default function App() {
       <SeoManager />
       <Navbar />
 
-      <main className="pt-20">
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />

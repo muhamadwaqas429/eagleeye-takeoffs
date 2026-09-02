@@ -1,20 +1,27 @@
+// src/components/Footer.jsx
 import React from "react";
-import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
 
-const quickLinks = [
-  { label: "Home", to: "/" },
-  { label: "Services", to: "/services" },
-  { label: "About Us", to: "/about" },
-  { label: "Contact", to: "/contact" },
+const navSections = [
+  { label: "Home", sectionId: "hero" },
+  { label: "Services", sectionId: "services" },
+  { label: "Sample Takeoffs", sectionId: "sample-work" },
+  { label: "How It Works", sectionId: "process" },
+  { label: "About", sectionId: "about" },
+  { label: "Contact", sectionId: "contact" },
 ];
 
 const servicesList = [
-  "Construction Takeoffs",
-  "Material Estimates",
-  "Blueprint Analysis",
-  "Residential Estimates",
-  "Commercial Estimates",
+  "Concrete & Foundation Takeoffs",
+  "Roofing Takeoffs",
+  "Framing & Drywall Estimates",
+  "Electrical Takeoffs",
+  "Plumbing & HVAC Estimates",
+  "Flooring & Painting Estimates",
+  "Sitework & Landscaping",
+  "Commercial Estimating",
+  "Residential Estimating",
 ];
 
 const offices = [
@@ -36,158 +43,176 @@ const offices = [
   },
 ];
 
-function SectionHeading({ children }) {
-  return (
-    <h3
-      className="text-[11px] font-bold uppercase tracking-widest pb-3 mb-5"
-      style={{
-        color: "#f59e0b",
-        borderBottom: "1px solid rgba(245,158,11,0.2)",
-      }}
-    >
-      {children}
-    </h3>
-  );
+function scrollTo(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    const yOffset = -75;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
 }
 
 export default function Footer() {
   return (
     <footer
       style={{
-        background: "linear-gradient(180deg, #0c1121 0%, #060a12 100%)",
-        borderTop: "1px solid rgba(255,255,255,0.07)",
-        color: "#9ca3af",
+        background: "linear-gradient(180deg, #060e1c 0%, #040a14 100%)",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        color: "#6b7280",
       }}
     >
-      {/* Amber top accent */}
+      {/* Gold Top Accent Bar */}
       <div
+        className="h-0.5 sm:h-[3px] w-full"
         style={{
-          height: "3px",
           background:
-            "linear-gradient(90deg, transparent 0%, #f59e0b 30%, #fbbf24 50%, #f59e0b 70%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, #f5b034 30%, #ffd56b 50%, #f5b034 70%, transparent 100%)",
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-8 sm:pb-10">
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 items-start">
 
-        {/* Main grid — 1 col on mobile, 2 cols on sm, 4 cols on lg */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 items-start">
-
-          {/* ── Col 1: Brand ── */}
+          {/* Col 1: Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            {/* Logo + name */}
-            <div className="flex items-center gap-3 mb-4">
-              <div
-                className="flex items-center justify-center shrink-0"
-                style={{
-                  width: "38px",
-                  height: "38px",
-                  borderRadius: "9px",
-                  background: "linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)",
-                }}
+            <div className="flex items-center gap-3 mb-3 sm:mb-4">
+              <img
+                src={logo}
+                alt="EagleEye Takeoffs"
+                className="h-8 sm:h-9 object-contain"
+                onError={(e) => (e.currentTarget.style.display = "none")}
+              />
+              <span
+                className="text-base sm:text-lg font-extrabold text-white tracking-tight"
+                style={{ fontFamily: "'Inter', sans-serif" }}
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#0c1121" />
-                  <path d="M2 17l10 5 10-5" stroke="#0c1121" strokeWidth="2.2" strokeLinecap="round" />
-                  <path d="M2 12l10 5 10-5" stroke="#0c1121" strokeWidth="2.2" strokeLinecap="round" />
-                </svg>
-              </div>
-              <span className="text-lg font-extrabold text-white tracking-tight">
-                EagleEye <span style={{ color: "#f59e0b" }}>Takeoffs</span>
+                EagleEye{" "}
+                <span style={{ color: "#f5b034" }}>Takeoffs</span>
               </span>
             </div>
 
-            <p className="text-sm leading-relaxed mb-5" style={{ color: "#6b7280", maxWidth: "300px" }}>
-              Premium construction takeoffs &amp; estimating services for
-              contractors, builders, and architects across North America.
+            <p
+              className="text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5 text-slate-400"
+              style={{ maxWidth: "300px" }}
+            >
+              Professional construction estimating and quantity takeoff services for contractors across the USA and Canada.
             </p>
 
             <a
               href="mailto:eagleeyetakeoffs@gmail.com"
-              className="inline-flex items-center gap-2 text-sm font-medium transition-colors"
-              style={{ color: "#f59e0b" }}
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium transition-colors"
+              style={{ color: "#f5b034" }}
             >
               <Mail size={14} />
               eagleeyetakeoffs@gmail.com
             </a>
           </div>
 
-          {/* ── Col 2: Quick Links ── */}
+          {/* Col 2: Navigation Links */}
           <div>
-            <SectionHeading>Quick Links</SectionHeading>
-            <ul className="flex flex-col gap-3">
-              {quickLinks.map((link) => (
+            <h3
+              className="text-[11px] sm:text-xs font-bold uppercase tracking-widest pb-2 sm:pb-3 mb-4 sm:mb-5"
+              style={{
+                color: "#f5b034",
+                borderBottom: "1px solid rgba(245,158,11,0.2)",
+                letterSpacing: "0.14em",
+              }}
+            >
+              Navigation
+            </h3>
+            <ul className="flex flex-col gap-2.5 sm:gap-3">
+              {navSections.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    to={link.to}
-                    className="flex items-center gap-2 text-sm transition-colors hover:text-white"
-                    style={{ color: "#9ca3af" }}
+                  <button
+                    onClick={() => scrollTo(link.sectionId)}
+                    className="flex items-center gap-2 text-xs sm:text-sm transition-colors text-left text-slate-400 hover:text-white cursor-pointer"
                   >
-                    <span style={{ color: "#f59e0b", fontSize: "10px" }}>▸</span>
+                    <span style={{ color: "#f5b034", fontSize: "9px" }}>▸</span>
                     {link.label}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* ── Col 3: Services ── */}
+          {/* Col 3: Services List */}
           <div>
-            <SectionHeading>Services</SectionHeading>
-            <ul className="flex flex-col gap-3">
+            <h3
+              className="text-[11px] sm:text-xs font-bold uppercase tracking-widest pb-2 sm:pb-3 mb-4 sm:mb-5"
+              style={{
+                color: "#f5b034",
+                borderBottom: "1px solid rgba(245,158,11,0.2)",
+                letterSpacing: "0.14em",
+              }}
+            >
+              Services
+            </h3>
+            <ul className="flex flex-col gap-2 sm:gap-2.5">
               {servicesList.map((svc) => (
                 <li
                   key={svc}
-                  className="flex items-start gap-2 text-sm"
-                  style={{ color: "#9ca3af" }}
+                  className="flex items-start gap-2 text-[11px] sm:text-xs text-slate-400"
                 >
-                  <span style={{ color: "#f59e0b", fontSize: "10px", marginTop: "3px", flexShrink: 0 }}>
+                  <span
+                    style={{
+                      color: "#f5b034",
+                      fontSize: "9px",
+                      marginTop: "3px",
+                      flexShrink: 0,
+                    }}
+                  >
                     ▸
                   </span>
-                  {svc}
+                  <span>{svc}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* ── Col 4: Offices ── */}
+          {/* Col 4: Regional Offices */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <SectionHeading>Our Offices</SectionHeading>
-            <div className="flex flex-col gap-4">
+            <h3
+              className="text-[11px] sm:text-xs font-bold uppercase tracking-widest pb-2 sm:pb-3 mb-4 sm:mb-5"
+              style={{
+                color: "#f5b034",
+                borderBottom: "1px solid rgba(245,158,11,0.2)",
+                letterSpacing: "0.14em",
+              }}
+            >
+              Our Offices
+            </h3>
+            <div className="flex flex-col gap-3 sm:gap-4">
               {offices.map((office) => (
                 <div
                   key={office.country}
+                  className="p-3 sm:p-4 rounded-md border border-white/5"
                   style={{
                     background: "rgba(255,255,255,0.025)",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                    borderRadius: "12px",
-                    padding: "14px 16px",
                   }}
                 >
-                  {/* Country */}
-                  <div className="flex items-center gap-2 mb-3">
-                    <span style={{ fontSize: "17px", lineHeight: 1 }}>{office.flag}</span>
-                    <span className="text-sm font-bold text-white">{office.country}</span>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-sm sm:text-base leading-none">{office.flag}</span>
+                    <span className="text-xs sm:text-sm font-bold text-white">{office.country}</span>
                   </div>
 
-                  {/* Address */}
-                  <div className="flex items-start gap-2 mb-2">
-                    <MapPin size={13} className="shrink-0 mt-0.5" style={{ color: "#6b7280" }} />
-                    <div className="text-xs leading-relaxed" style={{ color: "#9ca3af" }}>
+                  <div className="flex items-start gap-2 mb-1.5">
+                    <MapPin
+                      size={12}
+                      className="shrink-0 mt-0.5 text-slate-500"
+                    />
+                    <div className="text-[11px] sm:text-xs text-slate-400 leading-relaxed">
                       <div>{office.address}</div>
                       <div>{office.city}</div>
                     </div>
                   </div>
 
-                  {/* Phone */}
                   <a
                     href={office.tel}
-                    className="inline-flex items-center gap-2 text-xs font-medium transition-colors hover:text-white"
-                    style={{ color: "#9ca3af" }}
+                    className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium text-slate-400 hover:text-amber-400 transition-colors"
                   >
-                    <Phone size={12} className="shrink-0" style={{ color: "#6b7280" }} />
+                    <Phone size={11} className="shrink-0 text-slate-500" />
                     {office.phone}
-                    <ArrowUpRight size={11} style={{ color: "#f59e0b" }} />
                   </a>
                 </div>
               ))}
@@ -197,33 +222,27 @@ export default function Footer() {
 
         {/* Divider */}
         <div
-          className="my-10"
-          style={{ height: "1px", background: "rgba(255,255,255,0.06)" }}
+          className="my-8 sm:my-10 h-px w-full"
+          style={{ background: "rgba(255,255,255,0.06)" }}
         />
 
-        {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs" style={{ color: "#4b5563" }}>
+        {/* Bottom Bar */}
+        <div
+          className="flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-3 text-[11px] sm:text-xs text-slate-500"
+        >
           <span>© {new Date().getFullYear()} EagleEye Takeoffs. All rights reserved.</span>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <span className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <span className="flex items-center gap-1.5">
               <span
-                style={{
-                  display: "inline-block",
-                  width: "6px",
-                  height: "6px",
-                  borderRadius: "50%",
-                  background: "#22c55e",
-                  boxShadow: "0 0 6px #22c55e",
-                }}
+                className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block shadow-[0_0_6px_#22c55e]"
               />
               Serving USA &amp; Canada
             </span>
-            <span style={{ color: "rgba(255,255,255,0.1)" }}>|</span>
+            <span className="text-white/10">|</span>
             <a
               href="mailto:eagleeyetakeoffs@gmail.com"
-              className="transition-colors hover:text-gray-400"
-              style={{ color: "#4b5563" }}
+              className="text-slate-500 hover:text-slate-300 transition-colors"
             >
               eagleeyetakeoffs@gmail.com
             </a>
